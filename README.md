@@ -4,14 +4,14 @@
 "golang.org/x/text/language" и "golang.org/x/text/message"
 
 
-Поиск шаблонов сообщений осуществлется в папке templates проекта.
+Поиск шаблонов сообщений осуществлется в папке **templates** проекта.
 
-Для хранения меток локализации используются yaml файлы (каждый язык в своем файле) из дирректории translations проекта.
+Для хранения меток локализации используются yaml файлы (каждый язык в своем файле) из директории **translations** проекта.
 
 
 ## Пример использования в cmd/main.go 
 
-import "github.com/paveloborin/goloc/pkg/service"
+    import "github.com/paveloborin/goloc/pkg/service"
 
 	data := &struct {
 		Name     string
