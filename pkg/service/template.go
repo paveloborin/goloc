@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"html/template"
+	"strings"
 
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
@@ -13,6 +14,7 @@ func ParseTemplate(tplName string, lang language.Tag, data interface{}) (string,
 	p := message.NewPrinter(lang)
 	fmap := template.FuncMap{
 		"translate": p.Sprintf,
+		"title":     strings.Title,
 	}
 
 	t, err := template.New(tplName).Funcs(fmap).ParseFiles("./templates/" + tplName)

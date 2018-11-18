@@ -1,2 +1,2 @@
 hello_subject: Приветственное письмо
-hello_msg: Привет %s %s!
+hello_msg: Привет, %s %s!
