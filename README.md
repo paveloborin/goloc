@@ -1,11 +1,27 @@
 # goloc
 
-Простой сервис для локализации сообщений c использованием шаблонов в виде отдельных файлов и хранения локализации в фоормате yaml.
+Простой и быстрый сервис для локализации писем, а также других сообщений, построенный на стандартных библиотеках go:
+"golang.org/x/text/language" и "golang.org/x/text/message"
 
-Локализации хранятся в формате yaml в дирректории translations
 
-Шаблоны в папке templates
+Поиск шаблоны сообщений осуществлется в папке templates проекта.
 
-Пример использования в cmd/main.go 
+Для хранения меток локалилизации используются yaml файлы (каждый язык в своем файле), 
+которые должны распологаться в дирректории translations проекта
 
-go run ./cmd/main.go
+
+## Пример использования в cmd/main.go 
+
+import "github.com/paveloborin/goloc/pkg/service"
+
+	data := &struct {
+		Name     string
+		LastName string
+	}{Name: "Ellis", LastName: "James"}
+
+	emailContent, err := service.ParseTemplate("hello.html", language.Russian, data)
+	fmt.Println(emailContent)
+
+
+## Запуск примера
+make run
